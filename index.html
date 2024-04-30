@@ -12,23 +12,23 @@
 
     <div>
       <label for="name">Name:</label><br>
-      <input type="text" name="event_participant[name]" value=""><br>
+      <input type="text" name="event_participant[name]" value="" required="required" ><br>
     </div>
     <div>
       <label for="company">Company:</label><br>
-      <input type="text" name="event_participant[company]" value=""><br>
+      <input type="text" name="event_participant[company]" value="" required="required" ><br>
     </div>
     <div>
       <label for="email">Email:</label><br>
-      <input type="text" name="event_participant[email]" value=""><br>
+      <input type="text" name="event_participant[email]" value="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required="required" ><br>
     </div>
     <div>
       <label for="phone">Phone:</label><br>
-      <input type="text" name="event_participant[phone]" value=""><br>
+      <input type="text" name="event_participant[phone]" value="" pattern="[6-9]\d{9}" required="required" ><br>
     </div>
     <div>
       <label for="designation">Designation:</label><br>
-      <input type="text" name="event_participant[designation]" value=""><br>
+      <input type="text" name="event_participant[designation]" value="" required="required" ><br>
     </div>
     <br>
     <input type="submit" value="Submit">
