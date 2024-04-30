@@ -23,7 +23,7 @@
     </div>
     <div>
       <label for="email">Email:</label><br>
-      <input type="text" name="event_participant[email]" value="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required="required" ><br>
+      <input type="text" name="event_participant[email]" value="" pattern="/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i" required="required" ><br>
     </div>
     <div>
       <label for="phone">Phone:</label><br>
