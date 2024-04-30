@@ -1,0 +1,35 @@
+<html lang="en">
+  <script>
+    function setCurrentPageUrl() {
+      var currentPageUrl = window.location.href;
+      document.getElementById("previous_url").value = currentPageUrl;
+    }
+  </script>
+
+  <form action="http://localhost:3000/events/4/event_participants" method="post" onsubmit="setCurrentPageUrl()">
+    <!-- Hidden input field to store the previous page URL -->
+    <input type="hidden" id="previous_url" name="previous_url">
+
+    <div>
+      <label for="name">Name:</label><br>
+      <input type="text" name="event_participant[name]" value=""><br>
+    </div>
+    <div>
+      <label for="company">Company:</label><br>
+      <input type="text" name="event_participant[company]" value=""><br>
+    </div>
+    <div>
+      <label for="email">Email:</label><br>
+      <input type="text" name="event_participant[email]" value=""><br>
+    </div>
+    <div>
+      <label for="phone">Phone:</label><br>
+      <input type="text" name="event_participant[phone]" value=""><br>
+    </div>
+    <div>
+      <label for="designation">Designation:</label><br>
+      <input type="text" name="event_participant[designation]" value=""><br>
+    </div>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
