@@ -4,9 +4,12 @@
       var currentPageUrl = window.location.href;
       document.getElementById("previous_url").value = currentPageUrl;
     }
+  function displayMessage() {
+    alert("Your message here");
+  }
   </script>
 
-  <form action="http://localhost:3000/events/4/event_participants" method="post" onsubmit="setCurrentPageUrl()">
+  <form action="http://localhost:3000/events/4/event_participants" method="post" onsubmit="setCurrentPageUrl(); displayMessage();">
     <!-- Hidden input field to store the previous page URL -->
     <input type="hidden" id="previous_url" name="previous_url">
 
@@ -33,9 +36,4 @@
     <br>
     <input type="submit" value="Submit">
   </form>
-<% flash.each do |key, message| %>
-    <div class="flash <%= key %>">
-      <%= message %>
-    </div>
-  <% end %>
 </html>
