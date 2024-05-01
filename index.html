@@ -11,22 +11,23 @@
 </html>
 <script>
     const form = document.querySelector("#interested_form")
-    const submitButton = document.querySelector("#interested_form_submit")
-    const scriptURL = ''
+  const submitButton = document.querySelector("#interested_form_submit")
+  const scriptURL = ''
 
-    form.addEventListener('submit', e => {
-      submitButton.disabled = true;
-      e.preventDefault();
-      let requestBody = new FormData(form);
-      fetch(scriptURL, { method: 'POST', body: requestBody })
-      .then(response => {
-        alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
-        submitButton.disabled = false
-      })
-      .catch(error => {
-        console.log(error);
-        alert('Sorry!! Something went wrong', error.message)
-        submitButton.disabled = false
-      })
-    });
+  form.addEventListener('submit', e => {
+    submitButton.disabled = true;
+    e.preventDefault();
+    let requestBody = new FormData(form);
+    fetch(scriptURL, { method: 'POST', body: requestBody })
+    .then(response => {
+      alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
+      submitButton.disabled = false
+    })
+    .catch(error => {
+      console.log(error);
+      alert('Sorry!! Something went wrong', error.message)
+      submitButton.disabled = false
+    })
+  });
+});
   </script>
