@@ -1,35 +1,32 @@
-<html lang="en">
-  <form id="interested_form" action="http://localhost:3000/events/4/event_participants/create_event_participant" method="post">
-    <input type="text" placeholder="Name" name="event_participant[name]" required> 
-    <input type="text" placeholder="Company Name" name="event_participant[company]" required>
-    <input type="text" placeholder="Designation" name="designation" required>
-    <input type="number" placeholder="Phone" name="event_participant[phone]" required>
-    <input type="email" placeholder="Email" name="event_participant[email]" required>
-    <span class="interested__left__form__term">**Only the CEO's and the Directors are cordially invited.</span>
-    <button type="submit" class="btn primary-btn" id="interested_form_submit">Submit</button>
-  </form>
+<html lang="en">  
+    <form id="interested_form" action="http://localhost:3000/events/4/event_participants" method="post">
+          <input type="text" placeholder="Name" name="event_participant[name]" required> 
+          <input type="text" placeholder="Company Name" name="event_participant[company]" required>
+          <input type="text" placeholder="Designation" name="designation" required>
+          <input type="number" placeholder="Phone" name="event_participant[phone]" required>
+          <input type="email" placeholder="Email" name="event_participant[email]" required>
+          <span class="interested__left__form__term">**Only the CEO's and the Directors are cordially invited.</span>
+          <button type="submit" class="btn primary-btn" id="interested_form_submit">Submit</button>
+        </form>
 </html>
-
 <script>
-  const form = document.querySelector("#interested_form")
-  const submitButton = document.querySelector("#interested_form_submit")
-  const scriptURL = ''
-  
-  form.addEventListener('submit', e => {
-  	submitButton.disabled = true;
-  	e.preventDefault();
-  	
-  	let requestBody = new FormData(form);
-  	fetch(scriptURL, { method: 'POST', body: requestBody })
-  	.then(response => {
-  		console.log('Hi');
-  		alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
-  		submitButton.disabled = false
-  	})
-  	.catch(error => {
-  		console.log(error);
-  		alert('Sorry!! Something went wrong', error.message)
-  		submitButton.disabled = false
-  	})
-  });
-</script>
+    const form = document.querySelector("#interested_form")
+    const submitButton = document.querySelector("#interested_form_submit")
+    const scriptURL = ''
+
+    form.addEventListener('submit', e => {
+      submitButton.disabled = true;
+      e.preventDefault();
+      let requestBody = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: requestBody })
+      .then(response => {
+        alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
+        submitButton.disabled = false
+      })
+      .catch(error => {
+        console.log(error);
+        alert('Sorry!! Something went wrong', error.message)
+        submitButton.disabled = false
+      })
+    });
+  </script>
