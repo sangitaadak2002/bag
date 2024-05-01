@@ -12,13 +12,13 @@
 <script>
     const form = document.querySelector("#interested_form")
   const submitButton = document.querySelector("#interested_form_submit")
-  const scriptURL = 'http://localhost:3000/events/4/event_participants'
+  const scriptURL = 'http://localhost:3000/events/4/event_participants/create_event_participant'
 
   form.addEventListener('submit', e => {
     submitButton.disabled = true;
     e.preventDefault();
     let requestBody = new FormData(form);
-    fetch(scriptURL, { method: 'POST', body: requestBody })
+    fetch(scriptURL, { method: 'POST', mode: 'no-cors',  body: requestBody })
     .then(response => {
         console.log('hi');
       alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
