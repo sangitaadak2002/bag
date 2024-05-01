@@ -21,7 +21,7 @@
     fetch(scriptURL, { method: 'POST', mode: 'no-cors',  body: requestBody })
     .then(response => {
         console.log('hi');
-        e.reset();
+        form.reset();
       alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
       submitButton.disabled = false
     })
