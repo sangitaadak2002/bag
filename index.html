@@ -1,38 +1,33 @@
-<html lang="en">
-
-  <form action="http://localhost:3000/events/4/event_participants" method="post" onsubmit="setCurrentPageUrl(); displayMessage();">
-    <input type="hidden" id="previous_url" name="previous_url">
-    <div>
-      <label for="name">Name:</label><br>
-      <input type="text" name="event_participant[name]" value="" required="required" ><br>
-    </div>
-    <div>
-      <label for="company">Company:</label><br>
-      <input type="text" name="event_participant[company]" value="" required="required" ><br>
-    </div>
-    <div>
-      <label for="email">Email:</label><br>
-      <input type="text" name="event_participant[email]" value="" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}" required="required"><br>
-    </div>
-    <div>
-      <label for="phone">Phone:</label><br>
-      <input type="text" name="event_participant[phone]" value="" pattern="[6-9]\d{9}" required="required" ><br>
-    </div>
-    <div>
-      <label for="designation">Designation:</label><br>
-      <input type="text" name="event_participant[designation]" value="" required="required" ><br>
-    </div>
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-
+<html lang="en">  
+    <form id="interested_form" action="http://localhost:3000/events/4/event_participants" method="post">
+          <input type="text" placeholder="Name" name="event_participant[name]" required> 
+          <input type="text" placeholder="Company Name" name="event_participant[company]" required>
+          <input type="text" placeholder="Designation" name="designation" required>
+          <input type="number" placeholder="Phone" name="event_participant[phone]" required>
+          <input type="email" placeholder="Email" name="event_participant[email]" required>
+          <span class="interested__left__form__term">**Only the CEO's and the Directors are cordially invited.</span>
+          <button type="submit" class="btn primary-btn" id="interested_form_submit">Submit</button>
+        </form>
 </html>
 <script>
-    function setCurrentPageUrl() {
-      var currentPageUrl = window.location.href;
-      document.getElementById("previous_url").value = currentPageUrl;
-    }
-  function displayMessage() {
-    alert("Thank you for showing your interest. Our team will be contacting you soon.!");
-  }
+    const form = document.querySelector("#interested_form")
+  const submitButton = document.querySelector("#interested_form_submit")
+  const scriptURL = ''
+
+  form.addEventListener('submit', e => {
+    submitButton.disabled = true;
+    e.preventDefault();
+    let requestBody = new FormData(form);
+    fetch(scriptURL, { method: 'POST', body: requestBody })
+    .then(response => {
+      alert('Thank you for showing your interest. Our team will be contacting you soon.!', response)
+      submitButton.disabled = false
+    })
+    .catch(error => {
+      console.log(error);
+      alert('Sorry!! Something went wrong', error.message)
+      submitButton.disabled = false
+    })
+  });
+});
   </script>
